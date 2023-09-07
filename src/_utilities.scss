@@ -1,0 +1,55 @@
+$displayProps: (
+  "block",
+  "inline-block",
+  "inline",
+  "flex",
+  "grid",
+  "inline-flex",
+  "inline-grid",
+  "table",
+  "inline-table",
+  "list-item",
+  "none",
+  "contents"
+);
+
+@each $disp in $displayProps {
+  .d-#{$disp} {
+    display: #{$disp};
+  }
+}
+
+$alignments: (
+  "center",
+  "space-between",
+  "space-around",
+  "space-evenly",
+  "flex-start",
+  "flex-end"
+);
+
+@each $align in $alignments {
+  .justify-#{$align} {
+    justify-content: #{$align};
+  }
+
+  .items-#{$align} {
+    align-items: #{$align};
+  }
+
+  .justify-items-#{$align} {
+    justify-items: #{$align};
+  }
+
+  .content-#{$align} {
+    align-content: #{$align};
+  }
+}
+
+$textAlignments: ("left", "right", "center", "revert");
+
+@each $textAlign in $textAlignments {
+  .text-#{$textAlign} {
+    text-align: #{$textAlign};
+  }
+}

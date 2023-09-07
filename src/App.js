@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { memo } from "react";
 
-function App() {
+import "./App.scss";
+import { Footer, Header } from "./components";
+import PokemonGrid from "./components/PokemonGrid";
+import usePokemon from "./hooks/usePokemon";
+
+function Loading() {
+  return <h2>🌀 Loading...</h2>;
+}
+
+function Error() {
+  return <h2>🌀 Error...</h2>;
+}
+
+const App = memo(() => {
+  const { pokemon, isLoading, error, getPokemonImage } = usePokemon({});
+  if (isLoading) return <Loading />;
+  if (error) return <Error />;
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <main>
+        <PokemonGrid pokemon={pokemon} getPokemonImage={getPokemonImage}/>
+      </main>
+      <Footer />
     </div>
   );
-}
+});
 
 export default App;
