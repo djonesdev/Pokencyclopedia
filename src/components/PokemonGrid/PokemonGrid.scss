@@ -1,7 +1,9 @@
 .pokemon-grid {
     display: grid;
     justify-content: center;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     grid-gap: 2rem;
-    padding: 1rem 0 1rem 0B;
+    padding: 1rem 0 1rem 0;
+    background: rgb(104,217,207);
+    background: linear-gradient(180deg, rgba(104,217,207,1) 23%, rgba(105,53,211,1) 95%, rgba(25,40,81,1) 100%);
 }
