@@ -111,7 +111,8 @@ input {
 
 .App {
   text-align: center;
-  background-color: $primary-background;
+  background: rgb(104,217,207);
+  background: linear-gradient(180deg, rgba(104,217,207,1) 23%, rgba(105,53,211,1) 95%, rgba(25,40,81,1) 100%);
 }
 
 p {

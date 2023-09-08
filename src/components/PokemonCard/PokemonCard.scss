@@ -1,13 +1,25 @@
 .pokemon-card {
-    background-color: white;
-    border-radius: 2rem;
+  border-radius: 2rem;
+  background: white;
+  transition: all 0.2s ease-in-out;
 
-    &__image {
-        max-width: 100%;
-        object-fit: contain;
-    }
+  &:hover {
+    cursor: pointer;
+    background: linear-gradient(
+      115deg,
+      #fff1ff 45%,
+      #f3533b 48% 55%,
+      #fb7248 55%
+    );
+  }
 
-    &__name {
-        font-size: 3rem;
-    }
+  &__image {
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  &__name {
+    font-size: clamp(0.5rem, 2vw + 0.5rem, 2rem);
+    text-transform: capitalize;
+  }
 }

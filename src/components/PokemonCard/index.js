@@ -3,7 +3,7 @@ import "./PokemonCard.scss";
 function PokemonCard({ pokemon }) {
   const { name, imageUrl } = pokemon;
   return (
-    <div className="pokemon-card" key={name}>
+    <button onClick={() => console.log('we are clicking on ' + name)} className="pokemon-card" key={name}>
       <div className="pokemon-card__image-container">
         <img
           className="pokemon-card__image"
@@ -13,7 +13,7 @@ function PokemonCard({ pokemon }) {
         />
       </div>
       <p className="pokemon-card__name">{name} </p>
-    </div>
+    </button>
   );
 }
 
