@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./DropdownSelector.scss";
 
-export default function DropdownSelector({ options, setSelectedOption }) {
+export default function DropdownSelector({ options, setSelectedOption, placeholder }) {
   const [isActive, setIsActive] = useState(false);
-  const [selected, setIsSelected] = useState({ label: "Choose one" });
+  const [selected, setIsSelected] = useState(placeholder);
 
   const setOption = (option) => {
     setIsSelected(option);

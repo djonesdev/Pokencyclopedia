@@ -1,13 +1,16 @@
-import { memo, useEffect } from "react";
+import { memo, useEffect, useState } from "react";
 
 import "./App.scss";
-import './_utilities.scss'
+import "./_utilities.scss";
 import { Footer, Header, PokemonGrid, PokemonFilters } from "./components";
 import usePokemon from "./hooks/usePokemon";
 
 const App = memo(() => {
-  const { pokemon, isLoading, loadMore, hasMorePokemonToLoad } =
-    usePokemon({});
+  const [generation, setGeneration] = useState(null);
+  const [region, setRegion] = useState(null);
+
+  const { pokemon, isLoading, loadMore, hasMorePokemonToLoad } = usePokemon({});
+
   const handleScroll = () => {
     if (
       window.innerHeight + document.documentElement.scrollTop !==
@@ -26,10 +29,13 @@ const App = memo(() => {
     };
   }, [handleScroll]);
 
+  console.log(region, 'region')
+  console.log(generation, 'generation')
+
   return (
     <div className="App">
       <Header />
-      <PokemonFilters />
+      <PokemonFilters setGeneration={setGeneration} setRegion={setRegion} />
       <main>
         <PokemonGrid
           pokemon={pokemon}
