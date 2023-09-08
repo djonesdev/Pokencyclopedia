@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import "./PokemonCard.scss";
 
-function PokemonCard({ pokemon, getPokemonData }) {
-  const { name, imageUrl } = pokemon;
+const PokemonCard = ({ pokemon, getPokemonData }) => {
+  const { name, imageUrl, pokedexNumber } = pokemon;
+  if(name === "voltorb") console.log(pokemon)
   return (
     <button onClick={getPokemonData} className="pokemon-card" key={name}>
       <div className="pokemon-card__image-container">
@@ -14,7 +15,7 @@ function PokemonCard({ pokemon, getPokemonData }) {
           src={imageUrl}
         />
       </div>
-      <p className="pokemon-card__name">{name} </p>
+      <p className="pokemon-card__name"><span className='pokemon-card__pokedex-number'>{`#${pokedexNumber} `}</span>{name} </p>
     </button>
   );
 }

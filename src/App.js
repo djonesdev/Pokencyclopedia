@@ -14,14 +14,14 @@ function Error() {
 }
 
 const App = memo(() => {
-  const { pokemon, isLoading, error, getPokemonImage } = usePokemon({});
+  const { pokemon, isLoading, error, loadMore } = usePokemon({});
   if (isLoading) return <Loading />;
   if (error) return <Error />;
   return (
     <div className="App">
       <Header />
       <main>
-        <PokemonGrid pokemon={pokemon} getPokemonImage={getPokemonImage}/>
+        <PokemonGrid pokemon={pokemon} loadMore={loadMore} />
       </main>
       <Footer />
     </div>

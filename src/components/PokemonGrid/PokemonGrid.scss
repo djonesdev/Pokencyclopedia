@@ -1,7 +1,31 @@
+@import './../../_colors.scss';
+
 .pokemon-grid {
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     grid-gap: 2rem;
     padding: 1rem;
+
+    &__load-more-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 3rem;
+    }
+
+    &__load-more-button {
+        background-color: red;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        transition: all 0.2s ease-in-out;
+        color: $primary-text;
+        font-family: "Flexo-Regular",arial,sans-serif;
+
+        &:hover {
+           transform: scale(1.025);
+           background-image: linear-gradient(rgb(0 0 0/40%) 0 0);
+           cursor: pointer;
+        }
+    }
 }

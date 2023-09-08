@@ -1,25 +1,20 @@
 import axios from 'axios'
 
-const config = {
+export const apiConfig = {
     baseUrl: 'https://pokeapi.co/api/v2'
 }
 
 export default {
     getPokemon: (params) => {
         return axios({
-            url: `${config.baseUrl}/pokemon`,
+            url: params.url ?? `${apiConfig.baseUrl}/pokemon`,
             method: 'GET', 
         })
     },
-    getAllPokemon: () => {
-        return axios({
-            url: `${config.baseUrl}/pokemon/?limit=811`,
-            method: 'GET', 
-        })
-    },
+
     getPokemonByGeneration: generationId => {
         return axios({
-            url: `${config.baseUrl}/generation/${generationId}`,
+            url: `${apiConfig.baseUrl}/generation/${generationId}`,
             method: 'GET', 
         })
     },
