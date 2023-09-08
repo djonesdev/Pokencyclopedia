@@ -1,3 +1,5 @@
 export { default as Footer } from './Footer/Footer'
 export { default as Header } from './Header/Header'
 export { default as PokemonGrid } from './PokemonGrid'
+export { default as PokemonFilters } from './PokemonFilters'
+export { default as DropdownSelector } from './DropdownSelector' 

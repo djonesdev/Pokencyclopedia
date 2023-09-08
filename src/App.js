@@ -1,27 +1,41 @@
-import { memo } from "react";
+import { memo, useEffect } from "react";
 
 import "./App.scss";
-import { Footer, Header } from "./components";
-import PokemonGrid from "./components/PokemonGrid";
+import './_utilities.scss'
+import { Footer, Header, PokemonGrid, PokemonFilters } from "./components";
 import usePokemon from "./hooks/usePokemon";
 
-function Loading() {
-  return <h2>🌀 Loading...</h2>;
-}
-
-function Error() {
-  return <h2>🌀 Error...</h2>;
-}
-
 const App = memo(() => {
-  const { pokemon, isLoading, error, loadMore } = usePokemon({});
-  if (isLoading) return <Loading />;
-  if (error) return <Error />;
+  const { pokemon, isLoading, loadMore, hasMorePokemonToLoad } =
+    usePokemon({});
+  const handleScroll = () => {
+    if (
+      window.innerHeight + document.documentElement.scrollTop !==
+        document.documentElement.offsetHeight ||
+      isLoading
+    ) {
+      return;
+    }
+    loadMore();
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [handleScroll]);
+
   return (
     <div className="App">
       <Header />
+      <PokemonFilters />
       <main>
-        <PokemonGrid pokemon={pokemon} loadMore={loadMore} />
+        <PokemonGrid
+          pokemon={pokemon}
+          loadMore={loadMore}
+          hasMorePokemonToLoad={hasMorePokemonToLoad}
+        />
       </main>
       <Footer />
     </div>

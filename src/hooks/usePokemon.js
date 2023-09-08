@@ -8,6 +8,7 @@ export default function usePokemon(params) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  // Not a massive fan of this function, unfortunately the pokeApi doesn't provide images when getting a list
   const getPokemonImage = (pokemon) => {
     if (pokemon && pokemon.url) {
       const pokedexNumber = pokemon.url
@@ -52,6 +53,7 @@ export default function usePokemon(params) {
   };
 
   useEffect(() => {
+    console.log('calling main useEffect')
     if (!pokemon && !isLoading) {
       callApi(params);
     }
@@ -63,6 +65,7 @@ export default function usePokemon(params) {
 
   return {
     pokemon,
+    hasMorePokemonToLoad: !!nextUrl,
     loadMore,
     isLoading,
     error,
