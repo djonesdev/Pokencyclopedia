@@ -1,9 +1,11 @@
+import React from 'react';
+
 import "./PokemonCard.scss";
 
-function PokemonCard({ pokemon }) {
+function PokemonCard({ pokemon, getPokemonData }) {
   const { name, imageUrl } = pokemon;
   return (
-    <button onClick={() => console.log('we are clicking on ' + name)} className="pokemon-card" key={name}>
+    <button onClick={getPokemonData} className="pokemon-card" key={name}>
       <div className="pokemon-card__image-container">
         <img
           className="pokemon-card__image"
